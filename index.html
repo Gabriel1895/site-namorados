@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Nosso Amor ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      animation: slideshow 25s infinite;
+    }
+
+    @keyframes slideshow {
+      0%   { background-image: url('foto1.jpg'); }
+      20%  { background-image: url('foto2.jpg'); }
+      40%  { background-image: url('foto3.jpg'); }
+      60%  { background-image: url('foto4.jpg'); }
+      80%  { background-image: url('foto5.jpg'); }
+      100% { background-image: url('foto1.jpg'); }
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.5);
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    #time {
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Eu e Você ❤️</h1>
+    <div id="time">Calculando...</div>
+  </div>
+
+  <script>
+    const startDate = new Date("2025-06-18T15:37:00");
+
+    function updateTimer() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('time').textContent =
+        `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  </script>
+</body>
+</html>
